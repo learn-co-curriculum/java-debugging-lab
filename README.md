@@ -12,108 +12,121 @@ Fork and clone this repository. When you do, you will see a `BuggyLab.java` file
 that already has some code in it:
 
 ```java
-import java.util.Scanner;
-
 public class BuggyLab {
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-        // Create a Scanner to take in user input
-        Scanner scanner = new Scanner(System.in);
+    // We're having another pizza party!
+    int pizzaSlices = 10;
+    int people = 10;
 
-        // Bug One
-        // Prompt the user for a number - this number can be a decimal number
-        System.out.println("Please enter a number");
-        int userNumber = scanner.nextInt();
+    // Bug One
+    // Do we have enough pizza to feed everyone?
+    boolean enoughPizza = pizzaSlices > people;
+    System.out.println("Do we have enough pizza to feed everyone? Answer: " + enoughPizza);
 
-        // Bug Two
-        // Compare if 10.5 is greater than or equal to the user input number
-        System.out.println("Let's compare your number against the number 10.5!");
-        boolean isGreater = userNumber > 10.5;
-        System.out.println("Is your number, " + userNumber + " greater than or equal to 10.5?");
-        System.out.println("The answer is: " + isGreater);
-    }
+    // Bug Two
+    // We're in luck! Bob ordered another pizza pie! The other pizza has 10 slices
+    // How many slices of pizza do we have now?
+    pizzaSlices =+ 10;
+    System.out.println("With another pizza, we now have " + pizzaSlices + " pizza slices.");
+
+    // Bug Three
+    // Oh no! Alyssa has to leave the party early and can't have any pizza.
+    // Will we have any slices of pizza left over?
+    people--;
+    int leftovers = pizzaSlices / people;
+    System.out.println("We will have " + leftovers + " slices of pizza left over if we only have "
+            + people + " people at the party.");
+
+  }
 }
 ```
 
-This program has two bugs that need to be fixed. Make your edits in this file.
+This program has three bugs that need to be fixed. Make your edits in this file.
 Note the comments in the file to help you as well.
 
 ## Instructions
 
-There are two bugs in the program that need to be fixed. Within `BuggyLab`, you
-should see some comments offering hints into what the bug may be. Use the
+There are three bugs in the program that need to be fixed. Within `BuggyLab`,
+you should see some comments offering hints into what the bug may be. Use the
 IntelliJ debugger to find the bugs, modify the code, and then step through the
 program again.
 
+HINT: Comment out the other bug sections to focus on the bug at hand. For
+example, if working on "Bug One", comment out the other two bugs. Once that bug
+has been resolved, uncomment the next bug section.
+
 ### Bug One
 
-In this section, we are expecting the user to enter a decimal number. This could
-be `23`, `-5.3`, or `10.5`. Run the debugger with each of these inputs to test.
+In this section, we want to see if we have enough pizza to feed everyone at the
+pizza party. Notice that the variables `pizzaSlices` and `pizza` have already
+been declared and initialized:
 
-- Set a breakpoint at line 11: `System.out.println("Please enter a number");`
-- Utilize the "step-over" action.
-- If the program highlights the next line to be line 16 at any point in time,
-  stop the execution and run the program in debug again.
-  - Line 16:
-    `System.out.println("Let's compare your number against the number 10.5!");`
-  - Reminder, the stop button can be found either at the top of IntelliJ or on
-    the left-hand sidebar of the debug console:
+```java
+        // We're having another pizza party!
+        int pizzaSlices = 10;
+        int people = 10;
+```
 
-  ![resume-pause-stop-execution-buttons](https://curriculum-content.s3.amazonaws.com/java-mod-1/debugger/resume-pause-stop-program.PNG)
-
-- Once you have isolated the bug, look at the code and determine the correct
-  fix.
-  - Hint: Try using a `try-catch` block as well.
-- Remember, we want all three inputs above to pass.
-- Feel free to test with more inputs if desired.
-  - Maybe try the input "bug".
+- Set a breakpoint on line 10: `boolean enoughPizza = pizzaSlices > people;`
+- Utilize the step-over action.
+- Consider what the value of the variable `enoughPizza`.
+  - If it looks right, resume the program and continue on.
+  - If it doesn't, stop the program and make the appropriate changes. Then
+    restart the debugger to see if it is corrected.
 - Once you have fixed the bug, move onto "Bug Two".
+
+As a reminder, the "resume program" and "stop" buttons can be found on the
+left-hand sidebar of the debug console:
+
+![resume-pause-stop-execution-buttons](https://curriculum-content.s3.amazonaws.com/java-mod-1/debugger/resume-pause-stop-program.PNG)
 
 ### Bug Two
 
-We want to see if the user entered a decimal number that is greater than or
-equal to a hardcoded value of 10.5. Run the debugger with each of these inputs
-to test: `23`, `-5.3`, `10.5`.
+In this section, we want to determine how many pizza slices we have now that Bob
+ordered an extra pizza! The extra pizza has another 10 slices.
 
-- Set a breakpoint on the following line:
-  `System.out.println("Let's compare your number against the number 10.5!");`
-- Utilize the "step-over" action.
-- A runtime error will not be thrown here. Instead, look at the output that is
-  printed to the console. Ensure that each test input matches the expected
-  output can that be seen below.
-- If the output does _not_ match the expected output, look at the code to
-  determine the code fix.
-- Remember, we want all three inputs above to pass.
-- Feel free to test with more inputs if desired.
+- Remove the breakpoint on line 10 from the "Bug One" section. By this point in
+  the lab, it is assumed you have already addressed that bug. You can remove a
+  breakpoint by clicking on the red dot next to the line number.
+- Set a breakpoint on line 16: `pizzaSlices =+ 10;`
+- Utilize the step-over action.
+- Consider the value being stored in `pizzaSlices`.
+  - If it looks right, resume the program and continue on.
+  - If it doesn't, stop the program and make the appropriate changes. Then
+    restart the debugger to see if it is corrected.
+- Once you have fixed the bug, move onto "Bug Three".
+
+### Bug Three
+
+In this section, we want to determine if we will have any leftover pizza given
+one person leaves the party early. Assume this person does not eat any pizza and
+that each person has an equal amount of slices.
+
+- Remove the breakpoint on line 16 from the "Bug Two" section. By this point in
+  the lab, it is assumed that you have already addressed that bug.
+  - Note: It is very important to fix "Bug Two" before moving onto this section.
+    If you have not completed "Bug Two", go back and try again.
+- Set a breakpoint on line 22: `people--;`
+- Utilize the step-over action.
+- Consider the value being stored in `people`.
+  - If it looks right, **consider the statement**:
+    `int leftovers = pizzaSlices / people;` **and then step-over to the next
+    statement.**
+  - If it doesn't, stop the program and make the appropriate changes. Then
+    restart the debugger to see if it is corrected.
+- Consider the value being stored in `leftovers`.
+  - If it looks right, resume the program and continue on.
+  - If it doesn't, stop the program and make the appropriate changes. Then
+    restart the debugger to see if it is corrected.
 
 ## Expected Output
 
-Test input: 23
+Use the expected output below to check your console output as you resolve
+each bug:
 
 ```text
-Please enter a number
-23
-Let's compare your number against the number 10.5!
-Is your number, 23.0 greater than or equal to 10.5?
-The answer is: true
-```
-
-Test input: -5.3
-
-```text
-Please enter a number
--5.3
-Let's compare your number against the number 10.5!
-Is your number, -5.3 greater than or equal to 10.5?
-The answer is: false
-```
-
-Test input: 10.5
-
-```text
-Please enter a number
-10.5
-Let's compare your number against the number 10.5!
-Is your number, 10.5 greater than or equal to 10.5?
-The answer is: true
+Do we have enough pizza to feed everyone? Answer: true
+With another pizza, we now have 20 pizza slices.
+We will have 2 slices of pizza left over if we only have 9 people at the party.
 ```

@@ -1,22 +1,28 @@
-import java.util.InputMismatchException;
-import java.util.Scanner;
-
 public class BuggyLab {
     public static void main(String[] args) {
 
-        // Create a Scanner to take in user input
-        Scanner scanner = new Scanner(System.in);
+        // We're having another pizza party!
+        int pizzaSlices = 10;
+        int people = 10;
 
         // Bug One
-        // Prompt the user for a number - this number can be a decimal number
-        System.out.println("Please enter a number");
-        int userNumber = scanner.nextInt();
+        // Do we have enough pizza to feed everyone?
+        boolean enoughPizza = pizzaSlices > people;
+        System.out.println("Do we have enough pizza to feed everyone? Answer: " + enoughPizza);
 
         // Bug Two
-        // Compare if 10.5 is greater than or equal to the user input number
-        System.out.println("Let's compare your number against the number 10.5!");
-        boolean isGreater = userNumber > 10.5;
-        System.out.println("Is your number, " + userNumber + " greater than or equal to 10.5?");
-        System.out.println("The answer is: " + isGreater);
+        // We're in luck! Bob ordered another pizza pie! The other pizza has 10 slices
+        // How many slices of pizza do we have now?
+        pizzaSlices =+ 10;
+        System.out.println("With another pizza, we now have " + pizzaSlices + " pizza slices.");
+
+        // Bug Three
+        // Oh no! Alyssa has to leave the party early and can't have any pizza.
+        // Will we have any slices of pizza left over?
+        people--;
+        int leftovers = pizzaSlices / people;
+        System.out.println("We will have " + leftovers + " slices of pizza left over if we only have "
+                + people + " people at the party.");
+
     }
 }
