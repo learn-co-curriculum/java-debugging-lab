@@ -56,6 +56,17 @@ HINT: Comment out the other bug sections to focus on the bug at hand. For
 example, if working on "Bug One", comment out the other two bugs. Once that bug
 has been resolved, uncomment the next bug section.
 
+### Expected Output
+
+Use the expected output here to check your console output as you resolve
+each bug:
+
+```text
+Do we have enough pizza to feed everyone? Answer: true
+With another pizza, we now have 20 pizza slices.
+We will have 2 slices of pizza left over if we only have 9 people at the party.
+```
+
 ### Bug One
 
 In this section, we want to see if we have enough pizza to feed everyone at the
@@ -81,6 +92,12 @@ left-hand sidebar of the debug console:
 
 ![resume-pause-stop-execution-buttons](https://curriculum-content.s3.amazonaws.com/java-mod-1/debugger/resume-pause-stop-program.PNG)
 
+The expected output of this section should be:
+
+```text
+Do we have enough pizza to feed everyone? Answer: true
+```
+
 ### Bug Two
 
 In this section, we want to determine how many pizza slices we have now that Bob
@@ -96,6 +113,12 @@ ordered an extra pizza! The extra pizza has another 10 slices.
   - If it doesn't, stop the program and make the appropriate changes. Then
     restart the debugger to see if it is corrected.
 - Once you have fixed the bug, move onto "Bug Three".
+
+The expected output of this section should be:
+
+```text
+With another pizza, we now have 20 pizza slices.
+```
 
 ### Bug Three
 
@@ -120,13 +143,8 @@ that each person has an equal amount of slices.
   - If it doesn't, stop the program and make the appropriate changes. Then
     restart the debugger to see if it is corrected.
 
-## Expected Output
-
-Use the expected output below to check your console output as you resolve
-each bug:
+The expected output of this section should be:
 
 ```text
-Do we have enough pizza to feed everyone? Answer: true
-With another pizza, we now have 20 pizza slices.
 We will have 2 slices of pizza left over if we only have 9 people at the party.
 ```
